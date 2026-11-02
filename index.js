@@ -3,6 +3,8 @@ import { Router } from './src/router.js';
 import { createGatewayServer } from './src/server.js';
 import { healthHandler } from './src/routes/health.route.js';
 import { registerFsRoutes } from './src/routes/fs.route.js';
+import { registerExecRoutes } from './src/routes/exec.route.js';
+import { registry } from './src/services/process.service.js';
 
 function parsePort() {
   const portArgIdx = process.argv.indexOf('--port');
@@ -21,6 +23,7 @@ const host = CONFIG.host;
 const router = new Router();
 router.register('GET', '/health', healthHandler);
 registerFsRoutes(router);
+registerExecRoutes(router);
 
 const server = createGatewayServer(router, { port, host });
 
@@ -32,11 +35,13 @@ server.listen(port, host, () => {
 
 function handleShutdown(signal) {
   console.log(`[fs-gw] Received ${signal}. Shutting down cleanly...`);
+  registry.killAllSync();
   server.close(() => {
     console.log('[fs-gw] Server closed.');
     process.exit(0);
   });
 }
 
+process.on('exit', () => registry.killAllSync());
 process.on('SIGINT', () => handleShutdown('SIGINT'));
 process.on('SIGTERM', () => handleShutdown('SIGTERM'));
