@@ -3,13 +3,13 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-last_updated: "2026-11-02T06:49:41.968Z"
+last_updated: "2026-11-02T07:15:00.000Z"
 progress:
   total_phases: 3
   completed_phases: 1
-  total_plans: 2
-  completed_plans: 2
-  percent: 100
+  total_plans: 4
+  completed_plans: 3
+  percent: 75
 ---
 
 # Project State: File System Gateway (fs-gw)
@@ -24,7 +24,7 @@ progress:
 ## Project Reference
 
 - **Core Value:** Cung cấp kênh giao tiếp cục bộ tin cậy và ổn định để ứng dụng desktop đọc/ghi filesystem và thực thi child process mà không bị EDR/Trellix chặn.
-- **Current Focus:** Phase 1 complete, ready for Phase 2 - File System Operations
+- **Current Focus:** Phase 2 Plan 01 complete, ready for Plan 02 (FS HTTP routes)
 - **Tech Stack:** Node.js stdlib (`node:http`, `node:fs/promises`, `node:child_process`, `node:path`), zero npm dependencies.
 - **Target OS:** Windows 11 Enterprise (PowerShell headful console).
 
@@ -32,10 +32,10 @@ progress:
 
 ## Current Position
 
-- **Phase:** 1 - Core Gateway & Security
-- **Plan:** 01 and 02 completed
-- **Status:** Ready to execute
-- **Progress:** `[====================] 100%` (2/2 plans complete in Phase 1)
+- **Phase:** 2 - File System Operations
+- **Plan:** 01 completed, 02 next
+- **Status:** In progress
+- **Progress:** `[===============>    ]` 75% (3/4 planned across phases 1-2)
 
 ---
 
@@ -62,13 +62,16 @@ progress:
 | Ephemeral port support in `createGatewayServer` | Allows `port: 0` in test suites without socket collisions | Decided |
 | Regex origin whitelist for CORS | Safely supports Vite and desktop origins across dynamic localhost and 127.0.0.1 dev ports | Decided |
 | Immediate stream destruction on body limit | Destroys request stream when body exceeds 10MB to halt unbounded memory buffering | Decided |
+| Co-locate atomic write temp files in target dir | Avoids EXDEV cross-device errors across partitions/drives | Decided |
+| Windows EPERM/EBUSY retry on atomic rename | Tolerates momentary file lock by AV/indexer with 25ms delay and copyFile fallback | Decided |
 
 ### Todos & Watch Items
 
 - [x] Chuẩn bị kịch bản test runner tích hợp sẵn `node:test` cho Phase 1.
 - [x] Cấu hình cổng 4820 linh hoạt qua biến môi trường `FS_GW_PORT` hoặc tham số khởi động.
 - [x] Implement CORS preflight and bounded 10MB JSON body parser (Plan 01-02).
-- [ ] Phase 2: CRUD file/directory endpoints and safe path sanitization against DOS devices and traversal.
+- [x] Implement Path Sanitizer & FS Service Core with Windows security guardrails and atomic write (Plan 02-01).
+- [ ] Phase 2 Plan 02: CRUD file/directory HTTP route endpoints and integration tests.
 - [ ] Lưu ý Windows taskkill path và shell: false parameter escaping trong Phase 3.
 
 ### Blockers
@@ -79,4 +82,4 @@ progress:
 
 ## Session Continuity
 
-- **Next Action:** Plan or execute Phase 2 (File System Operations).
+- **Next Action:** Execute Phase 2 Plan 02 (Filesystem HTTP routes & gateway integration).

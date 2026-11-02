@@ -56,7 +56,7 @@ Plans:
 Plans:
 **Wave 1**
 
-- [ ] 02-01-PLAN.md — Path Sanitizer & FS Service Core with Windows security guardrails and atomic write
+- [x] 02-01-PLAN.md — Path Sanitizer & FS Service Core with Windows security guardrails and atomic write
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
@@ -84,5 +84,5 @@ Plans:
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Core Gateway & Security | 2/2 | Complete | 2026-11-02 |
-| 2. File System Operations | 0/2 | Planned | - |
+| 2. File System Operations | 1/2 | In progress | - |
 | 3. Process Execution & Streaming | 0/0 | Not started | - |
