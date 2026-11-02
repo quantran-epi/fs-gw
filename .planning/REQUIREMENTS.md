@@ -56,8 +56,6 @@ Explicitly excluded. Documented to prevent scope creep.
 
 ## Traceability
 
-Which phases cover which requirements. Updated during roadmap creation.
-
 | Requirement | Phase | Status |
 |-------------|-------|--------|
 | CORE-01 | Phase 1 | Pending |
@@ -85,4 +83,4 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 ---
 *Requirements defined: 2026-11-02*
-*Last updated: 2026-11-02 after initial requirements definition*
+*Roadmap mapped: 2026-11-02 (Coarse MVP)*
