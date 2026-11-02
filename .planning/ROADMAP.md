@@ -75,7 +75,15 @@ Plans:
   3. Client can abort a running process via `POST /exec/kill`, or have long-running process aborted by timeout, with the entire Windows process tree killed via `taskkill.exe /pid <PID> /T /F` leaving zero orphan processes.
   4. Commands execute with `shell: false` default parameter array semantics to prevent command injection and avoid triggering enterprise EDR behavioral alerts.
 
-**Plans**: TBD
+**Plans:** 2 plans
+Plans:
+**Wave 1**
+
+- [ ] 03-01-PLAN.md — Command input validator, active PID registry, taskkill tree abort, and process execution service
+
+**Wave 2** *(blocked on Wave 1 completion)*
+
+- [ ] 03-02-PLAN.md — Exec HTTP routes, gateway lifecycle integration, and end-to-end integration tests
 
 ---
 
@@ -85,4 +93,4 @@ Plans:
 |-------|----------------|--------|-----------|
 | 1. Core Gateway & Security | 2/2 | Complete | 2026-11-02 |
 | 2. File System Operations | 2/2 | Complete | 2026-11-02 |
-| 3. Process Execution & Streaming | 0/0 | Not started | - |
+| 3. Process Execution & Streaming | 0/2 | Planned | - |
