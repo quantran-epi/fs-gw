@@ -2,6 +2,7 @@ import { CONFIG } from './src/config.js';
 import { Router } from './src/router.js';
 import { createGatewayServer } from './src/server.js';
 import { healthHandler } from './src/routes/health.route.js';
+import { registerFsRoutes } from './src/routes/fs.route.js';
 
 function parsePort() {
   const portArgIdx = process.argv.indexOf('--port');
@@ -19,6 +20,7 @@ const host = CONFIG.host;
 
 const router = new Router();
 router.register('GET', '/health', healthHandler);
+registerFsRoutes(router);
 
 const server = createGatewayServer(router, { port, host });
 
