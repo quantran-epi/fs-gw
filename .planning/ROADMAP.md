@@ -8,7 +8,7 @@
 
 ## Phases
 
-- [ ] **Phase 1: Core Gateway & Security** - Node.js stdlib HTTP server, loopback binding, DNS rebinding guard, CORS, error envelope, healthcheck.
+- [x] **Phase 1: Core Gateway & Security** - Node.js stdlib HTTP server, loopback binding, DNS rebinding guard, CORS, error envelope, healthcheck.
 - [ ] **Phase 2: File System Operations** - CRUD file/directory endpoints, atomic write, safe path sanitizer against DOS devices and traversal.
 - [ ] **Phase 3: Process Execution & Streaming** - Safe child process spawn, timeout management, Windows process tree termination, real-time command streaming.
 
@@ -37,7 +37,7 @@ Plans:
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
-- [ ] 01-02-PLAN.md — Implement CORS preflight for desktop/Vite origins and bounded 10MB JSON request body parser
+- [x] 01-02-PLAN.md — Implement CORS preflight for desktop/Vite origins and bounded 10MB JSON request body parser
 
 ### Phase 2: File System Operations
 
@@ -75,6 +75,6 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Core Gateway & Security | 1/2 | In progress | - |
+| 1. Core Gateway & Security | 2/2 | Complete | 2026-11-02 |
 | 2. File System Operations | 0/0 | Not started | - |
 | 3. Process Execution & Streaming | 0/0 | Not started | - |

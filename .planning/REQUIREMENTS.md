@@ -11,9 +11,9 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [x] **CORE-01**: Gateway server khởi động trên Node.js stdlib thuần (`node:http`), chỉ bind loopback `127.0.0.1:4820`, 0 npm dependencies.
 - [x] **CORE-02**: Endpoint `GET /health` trả về thông tin trạng thái server (`status: "ok"`, uptime, platform, node version).
-- [ ] **CORE-03**: CORS preflight hỗ trợ đầy đủ các methods (GET, POST, OPTIONS) và headers cần thiết cho frontend Vite / Tauri.
+- [x] **CORE-03**: CORS preflight hỗ trợ đầy đủ các methods (GET, POST, OPTIONS) và headers cần thiết cho frontend Vite / Tauri.
 - [x] **CORE-04**: Bảo vệ localhost chống DNS rebinding bằng việc kiểm tra strict `Host` header (chỉ chấp nhận `127.0.0.1`, `localhost`).
-- [ ] **CORE-05**: Bounded JSON request body parser (tối đa 10MB) với xử lý lỗi cú pháp JSON và mã phản hồi chuẩn hóa (`{ ok: boolean, data?: any, error?: string, code?: string }`).
+- [x] **CORE-05**: Bounded JSON request body parser (tối đa 10MB) với xử lý lỗi cú pháp JSON và mã phản hồi chuẩn hóa (`{ ok: boolean, data?: any, error?: string, code?: string }`).
 
 ### File System Operations
 
@@ -60,9 +60,9 @@ Explicitly excluded. Documented to prevent scope creep.
 |-------------|-------|--------|
 | CORE-01 | Phase 1 | Complete |
 | CORE-02 | Phase 1 | Complete |
-| CORE-03 | Phase 1 | Pending |
+| CORE-03 | Phase 1 | Complete |
 | CORE-04 | Phase 1 | Complete |
-| CORE-05 | Phase 1 | Pending |
+| CORE-05 | Phase 1 | Complete |
 | FS-01 | Phase 2 | Pending |
 | FS-02 | Phase 2 | Pending |
 | FS-03 | Phase 2 | Pending |
