@@ -33,7 +33,7 @@
 Plans:
 **Wave 1**
 
-- [ ] 01-01-PLAN.md — Scaffold HTTP server on 127.0.0.1:4820, DNS rebinding guard, healthcheck route, and standardized JSON envelope
+- [x] 01-01-PLAN.md — Scaffold HTTP server on 127.0.0.1:4820, DNS rebinding guard, healthcheck route, and standardized JSON envelope
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
@@ -75,6 +75,6 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Core Gateway & Security | 0/2 | Ready | - |
+| 1. Core Gateway & Security | 1/2 | In progress | - |
 | 2. File System Operations | 0/0 | Not started | - |
 | 3. Process Execution & Streaming | 0/0 | Not started | - |
