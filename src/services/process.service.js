@@ -280,9 +280,16 @@ export function streamProcessExecution({
   });
 
   // Terminate process tree if client disconnects
-  req.on('close', () => {
+  let cleanedUp = false;
+  const cleanupOnDisconnect = () => {
+    if (cleanedUp) return;
+    cleanedUp = true;
     if (!child.killed && entry) {
       killProcessTree(child.pid);
     }
-  });
+  };
+  req?.on?.('close', cleanupOnDisconnect);
+  res?.on?.('close', cleanupOnDisconnect);
+  req?.socket?.on?.('close', cleanupOnDisconnect);
+  res?.socket?.on?.('close', cleanupOnDisconnect);
 }
