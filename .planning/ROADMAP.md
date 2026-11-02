@@ -9,7 +9,7 @@
 ## Phases
 
 - [x] **Phase 1: Core Gateway & Security** - Node.js stdlib HTTP server, loopback binding, DNS rebinding guard, CORS, error envelope, healthcheck.
-- [ ] **Phase 2: File System Operations** - CRUD file/directory endpoints, atomic write, safe path sanitizer against DOS devices and traversal.
+- [x] **Phase 2: File System Operations** - CRUD file/directory endpoints, atomic write, safe path sanitizer against DOS devices and traversal.
 - [ ] **Phase 3: Process Execution & Streaming** - Safe child process spawn, timeout management, Windows process tree termination, real-time command streaming.
 
 ---
@@ -60,7 +60,7 @@ Plans:
 
 **Wave 2** *(blocked on Wave 1 completion)*
 
-- [ ] 02-02-PLAN.md — Filesystem HTTP routes & gateway integration with end-to-end integration tests
+- [x] 02-02-PLAN.md — Filesystem HTTP routes & gateway integration with end-to-end integration tests
 
 ### Phase 3: Process Execution & Streaming
 
@@ -84,5 +84,5 @@ Plans:
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Core Gateway & Security | 2/2 | Complete | 2026-11-02 |
-| 2. File System Operations | 1/2 | In progress | - |
+| 2. File System Operations | 2/2 | Complete | 2026-11-02 |
 | 3. Process Execution & Streaming | 0/0 | Not started | - |

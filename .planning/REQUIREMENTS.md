@@ -17,13 +17,13 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### File System Operations
 
-- [ ] **FS-01**: Endpoint `POST /fs/read` đọc file dạng text UTF-8 hoặc binary (Base64), trả về content, size, mime gợi ý.
-- [ ] **FS-02**: Endpoint `POST /fs/write` ghi nội dung text hoặc binary (Base64) xuống file, hỗ trợ tự động tạo thư mục cha (`mkdir -p`) và cơ chế atomic write qua temporary file.
-- [ ] **FS-03**: Endpoint `POST /fs/stat` kiểm tra thông tin file/thư mục (tồn tại `exists: boolean`, isFile, isDirectory, size, mtime), không ném 500 khi file không tồn tại.
-- [ ] **FS-04**: Endpoint `POST /fs/list` liệt kê nội dung thư mục, trả về danh sách entry kèm loại (file/directory/symlink).
-- [ ] **FS-05**: Endpoint `POST /fs/mkdir` tạo thư mục đệ quy (`recursive: true`).
-- [ ] **FS-06**: Endpoint `POST /fs/delete` xóa file hoặc thư mục đệ quy (`recursive: true`, `force: true`).
-- [ ] **FS-07**: Bộ lọc Path Traversal & Windows DOS Devices chặn các đường dẫn chứa ký tự điều khiển, thiết bị đặc biệt (`CON`, `PRN`, `AUX`, `NUL`, `COM1-9`, `LPT1-9`) và Alternate Data Streams (`:`).
+- [x] **FS-01**: Endpoint `POST /fs/read` đọc file dạng text UTF-8 hoặc binary (Base64), trả về content, size, mime gợi ý.
+- [x] **FS-02**: Endpoint `POST /fs/write` ghi nội dung text hoặc binary (Base64) xuống file, hỗ trợ tự động tạo thư mục cha (`mkdir -p`) và cơ chế atomic write qua temporary file.
+- [x] **FS-03**: Endpoint `POST /fs/stat` kiểm tra thông tin file/thư mục (tồn tại `exists: boolean`, isFile, isDirectory, size, mtime), không ném 500 khi file không tồn tại.
+- [x] **FS-04**: Endpoint `POST /fs/list` liệt kê nội dung thư mục, trả về danh sách entry kèm loại (file/directory/symlink).
+- [x] **FS-05**: Endpoint `POST /fs/mkdir` tạo thư mục đệ quy (`recursive: true`).
+- [x] **FS-06**: Endpoint `POST /fs/delete` xóa file hoặc thư mục đệ quy (`recursive: true`, `force: true`).
+- [x] **FS-07**: Bộ lọc Path Traversal & Windows DOS Devices chặn các đường dẫn chứa ký tự điều khiển, thiết bị đặc biệt (`CON`, `PRN`, `AUX`, `NUL`, `COM1-9`, `LPT1-9`) và Alternate Data Streams (`:`).
 
 ### Process Execution Engine
 
@@ -63,13 +63,13 @@ Explicitly excluded. Documented to prevent scope creep.
 | CORE-03 | Phase 1 | Complete |
 | CORE-04 | Phase 1 | Complete |
 | CORE-05 | Phase 1 | Complete |
-| FS-01 | Phase 2 | Pending |
-| FS-02 | Phase 2 | Pending |
-| FS-03 | Phase 2 | Pending |
-| FS-04 | Phase 2 | Pending |
-| FS-05 | Phase 2 | Pending |
-| FS-06 | Phase 2 | Pending |
-| FS-07 | Phase 2 | Pending |
+| FS-01 | Phase 2 | Complete |
+| FS-02 | Phase 2 | Complete |
+| FS-03 | Phase 2 | Complete |
+| FS-04 | Phase 2 | Complete |
+| FS-05 | Phase 2 | Complete |
+| FS-06 | Phase 2 | Complete |
+| FS-07 | Phase 2 | Complete |
 | EXEC-01 | Phase 3 | Pending |
 | EXEC-02 | Phase 3 | Pending |
 | EXEC-03 | Phase 3 | Pending |
