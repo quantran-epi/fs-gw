@@ -52,7 +52,15 @@ Plans:
   3. Client can create directory trees (`POST /fs/mkdir`), list directory contents with entry types (`POST /fs/list`), and delete files or folders recursively (`POST /fs/delete`).
   4. Requests targeting Windows DOS devices (`CON`, `PRN`, `NUL`, `AUX`, `COM1-9`), NTFS streams (`C:\test:stream`), or relative path traversal outside target boundaries return HTTP 400 validation error without hanging the server thread.
 
-**Plans**: TBD
+**Plans:** 2 plans
+Plans:
+**Wave 1**
+
+- [ ] 02-01-PLAN.md — Path Sanitizer & FS Service Core with Windows security guardrails and atomic write
+
+**Wave 2** *(blocked on Wave 1 completion)*
+
+- [ ] 02-02-PLAN.md — Filesystem HTTP routes & gateway integration with end-to-end integration tests
 
 ### Phase 3: Process Execution & Streaming
 
@@ -76,5 +84,5 @@ Plans:
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Core Gateway & Security | 2/2 | Complete | 2026-11-02 |
-| 2. File System Operations | 0/0 | Not started | - |
+| 2. File System Operations | 0/2 | Planned | - |
 | 3. Process Execution & Streaming | 0/0 | Not started | - |
