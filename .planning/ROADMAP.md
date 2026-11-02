@@ -26,7 +26,11 @@
   2. Request with invalid or external `Host` header (e.g. `Host: evil.com`) is rejected with HTTP 403 Forbidden.
   3. Preflight `OPTIONS` request with CORS headers matching Vite/Tauri origins returns 204 with allowed methods (GET, POST, OPTIONS) and allowed headers.
   4. Malformed JSON payload or payload exceeding 10MB to any POST endpoint returns structured HTTP 400 error `{ ok: false, error: string, code: string }`.
-**Plans**: TBD
+**Plans:** 2 plans
+
+Plans:
+- [ ] 01-01-PLAN.md — Scaffold HTTP server on 127.0.0.1:4820, DNS rebinding guard, healthcheck route, and standardized JSON envelope
+- [ ] 01-02-PLAN.md — Implement CORS preflight for desktop/Vite origins and bounded 10MB JSON request body parser
 
 ### Phase 2: File System Operations
 **Goal**: Client can safely perform file and directory CRUD operations (read, atomic write, stat, list, mkdir, recursive delete) without path traversal or Windows DOS device crashes.
@@ -58,6 +62,6 @@
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Core Gateway & Security | 0/0 | Not started | - |
+| 1. Core Gateway & Security | 0/2 | Ready | - |
 | 2. File System Operations | 0/0 | Not started | - |
 | 3. Process Execution & Streaming | 0/0 | Not started | - |
