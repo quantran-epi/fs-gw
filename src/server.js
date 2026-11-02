@@ -1,4 +1,5 @@
 import http from 'node:http';
+import { handleCors } from './middleware/cors.js';
 import { validateHost } from './middleware/security.js';
 import { sendError } from './utils/response.js';
 
@@ -12,7 +13,12 @@ export function createGatewayServer(router, options = {}) {
       return sendError(res, 403, 'Forbidden: Invalid Host header', 'ERR_FORBIDDEN_HOST');
     }
 
-    // 2. Dispatch to router
+    // 2. CORS preflight and headers
+    if (handleCors(req, res)) {
+      return;
+    }
+
+    // 3. Dispatch to router
     try {
       await router.dispatch(req, res);
     } catch (err) {
