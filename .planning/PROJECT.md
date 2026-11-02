@@ -12,17 +12,17 @@ Cung cấp kênh giao tiếp cục bộ tin cậy và ổn định để ứng d
 
 ### Validated
 
-(None yet — ship to validate)
+- [x] HTTP REST server tối giản sử dụng Node.js stdlib (`node:http`, `node:fs/promises`, `node:child_process`), 0 third-party dependencies. (Validated in Phase 1: Core Gateway & Security)
+- [x] Binding mặc định an toàn tại `127.0.0.1` với port có thể cấu hình (hoặc port mặc định cố định, ví dụ 4820). (Validated in Phase 1: Core Gateway & Security)
+- [x] CORS & Healthcheck: Hỗ trợ CORS cho local origin của Tauri/Vite và endpoint `GET /health` kiểm tra trạng thái gateway. (Validated in Phase 1: Core Gateway & Security)
+- [x] Error handling chuẩn hoá: Trả về JSON lỗi có cấu trúc (`{ ok: boolean, data?: any, error?: string, code?: string }`) với HTTP status codes thích hợp. (Validated in Phase 1 & 2)
+- [x] File System endpoints: Đọc file (UTF-8 / Binary Base64), ghi file atomic, tạo thư mục (`mkdir -p`), xóa file/thư mục, kiểm tra tồn tại và metadata (`stat`), liệt kê thư mục (`list`). (Validated in Phase 2: File System Operations)
+- [x] Child Process Execution endpoint: Chạy lệnh shell/binary (git, npm, cli...) với working directory tuỳ chọn, trả về exit code, stdout, stderr qua `POST /exec/run` và hủy process tree qua `POST /exec/kill`. (Validated in Phase 3: Process Execution & Streaming)
+- [x] Streaming support: Server-Sent Events (SSE) thời gian thực qua `GET /exec/stream` và `POST /exec/stream` với backpressure và tự động dọn dẹp khi ngắt kết nối. (Validated in Phase 3: Process Execution & Streaming)
 
 ### Active
 
-- [ ] HTTP REST server tối giản sử dụng Node.js stdlib (`node:http`, `node:fs/promises`, `node:child_process`), 0 third-party dependencies.
-- [ ] Binding mặc định an toàn tại `127.0.0.1` với port có thể cấu hình (hoặc port mặc định cố định, ví dụ 4820).
-- [ ] File System endpoints: Đọc file (UTF-8 / Binary), ghi file, tạo thư mục (`mkdir -p`), xóa file/thư mục, kiểm tra tồn tại (`exists`), liệt kê thư mục (`readdir`), và lấy thông tin file (`stat`).
-- [ ] Child Process Execution endpoint: Chạy lệnh shell/binary (git, npm, cli...) với working directory tuỳ chọn, trả về exit code, stdout, stderr.
-- [ ] Streaming support hoặc cơ chế chunking cho kết quả đọc file lớn / output command dài.
-- [ ] CORS & Healthcheck: Hỗ trợ CORS cho local origin của Tauri/Vite và endpoint `GET /health` kiểm tra trạng thái gateway.
-- [ ] Error handling chuẩn hoá: Trả về JSON lỗi có cấu trúc (`{ error: string, code?: string, details?: any }`) với HTTP status codes thích hợp.
+(All core requirements validated)
 
 ### Out of Scope
 
@@ -46,9 +46,11 @@ Cung cấp kênh giao tiếp cục bộ tin cậy và ổn định để ứng d
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| Node.js stdlib thuần (`node:http`) | Không cần phụ thuộc npm, nhẹ, khởi động tức thì, không bị ảnh hưởng bởi supply chain attacks | — Pending |
-| HTTP REST API | Chuẩn hóa, dễ tích hợp trực tiếp từ frontend fetch trong React / Tauri | — Pending |
-| Localhost bind only | Đơn giản hóa, không cần setup auth token cho cá nhân, an toàn trong phạm vi loopback | — Pending |
+| Node.js stdlib thuần (`node:http`, `node:fs`, `node:child_process`) | Không cần phụ thuộc npm, nhẹ, khởi động tức thì, không bị ảnh hưởng bởi supply chain attacks | Validated |
+| HTTP REST API + SSE | Chuẩn hóa, dễ tích hợp trực tiếp từ frontend fetch/EventSource trong React / Tauri | Validated |
+| Localhost bind only + Host header verification | Đơn giản hóa, an toàn trong phạm vi loopback, phòng chống DNS rebinding | Validated |
+| Windows Process Tree Taskkill (`/pid <PID> /T /F`) | Đảm bảo dọn dẹp sạch sẽ process con, ngăn chặn tiến trình mồ côi | Validated |
+| Strict parameter array default (`shell: false`) | Ngăn chặn command injection (CVE-2024-27980) và né cờ EDR | Validated |
 
 ---
-*Last updated: 2026-11-02 after initial project creation*
+*Last updated: 2026-11-02 after Phase 3 completion*

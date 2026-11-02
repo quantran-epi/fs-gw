@@ -27,11 +27,11 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Process Execution Engine
 
-- [ ] **EXEC-01**: Endpoint `POST /exec/run` thực thi command/binary bằng `node:child_process.spawn` với danh sách arguments dạng mảng, `cwd` tùy chọn, và timeout giới hạn.
-- [ ] **EXEC-02**: Cơ chế thực thi an toàn không dùng shell string concatenation (`shell: false` mặc định), tránh command injection và không kích hoạt cảnh báo hành vi của Trellix.
-- [ ] **EXEC-03**: Endpoint `POST /exec/kill` hủy tiến trình và toàn bộ cây tiến trình con (process tree) trên Windows bằng `taskkill.exe /pid <PID> /T /F`.
-- [ ] **EXEC-04**: Theo dõi danh sách process đang chạy (Active PID registry) để tự động thu dọn và ngăn chặn zombie processes khi gateway tắt hoặc tiến trình timeout.
-- [ ] **EXEC-05**: Endpoint streaming `GET /exec/stream` hoặc chunked SSE truyền tải real-time stdout/stderr và exit code cho các lệnh kéo dài (git clone/pull, npm test, build).
+- [x] **EXEC-01**: Endpoint `POST /exec/run` thực thi command/binary bằng `node:child_process.spawn` với danh sách arguments dạng mảng, `cwd` tùy chọn, và timeout giới hạn.
+- [x] **EXEC-02**: Cơ chế thực thi an toàn không dùng shell string concatenation (`shell: false` mặc định), tránh command injection và không kích hoạt cảnh báo hành vi của Trellix.
+- [x] **EXEC-03**: Endpoint `POST /exec/kill` hủy tiến trình và toàn bộ cây tiến trình con (process tree) trên Windows bằng `taskkill.exe /pid <PID> /T /F`.
+- [x] **EXEC-04**: Theo dõi danh sách process đang chạy (Active PID registry) để tự động thu dọn và ngăn chặn zombie processes khi gateway tắt hoặc tiến trình timeout.
+- [x] **EXEC-05**: Endpoint streaming `GET /exec/stream` hoặc chunked SSE truyền tải real-time stdout/stderr và exit code cho các lệnh kéo dài (git clone/pull, npm test, build).
 
 ## v2 Requirements
 
@@ -70,13 +70,14 @@ Explicitly excluded. Documented to prevent scope creep.
 | FS-05 | Phase 2 | Complete |
 | FS-06 | Phase 2 | Complete |
 | FS-07 | Phase 2 | Complete |
-| EXEC-01 | Phase 3 | Pending |
-| EXEC-02 | Phase 3 | Pending |
-| EXEC-03 | Phase 3 | Pending |
-| EXEC-04 | Phase 3 | Pending |
-| EXEC-05 | Phase 3 | Pending |
+| EXEC-01 | Phase 3 | Complete |
+| EXEC-02 | Phase 3 | Complete |
+| EXEC-03 | Phase 3 | Complete |
+| EXEC-04 | Phase 3 | Complete |
+| EXEC-05 | Phase 3 | Complete |
 
 **Coverage:**
+
 - v1 requirements: 17 total
 - Mapped to phases: 17
 - Unmapped: 0
